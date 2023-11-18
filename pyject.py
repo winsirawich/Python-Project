@@ -3,7 +3,7 @@ from PIL import Image, ImageTk
 import os
 import pickle
 # Base class for medicines
-class Medicine:
+class Medicine(object):
     def __init__(self, name, price, stock):
         self.name = name
         self.price = price
@@ -27,7 +27,7 @@ class PharmacyItem(Medicine):
         return f"{base_details}\nDescription: {self.description}"
 
 # Pharmacy Management System class
-class PharmacyManagementSystem:
+class PharmacyManagementSystem(object):
     def __init__(self, master):
         self.master = master
         master.title("Pharmacy Management System")
