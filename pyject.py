@@ -339,9 +339,20 @@ class PharmacyManagementSystem(object):
             else:
                 raise KeyError(f"{product.name} not found in stock.")
         except KeyError as e:
-            print(f"Error: {e}")
+            self.show_error_message(f"Error: {e}")
         except ValueError as e:
-            print(f"Error: {e}")
+            self.show_error_message(f"Error: {e}")
+
+    def show_error_message(self, message):
+        error_window = tk.Toplevel(self.master)
+        error_window.title("Error")
+        
+        error_label = tk.Label(error_window, text=message)
+        error_label.pack()
+
+        ok_button = tk.Button(error_window, text="OK", command=error_window.destroy)
+        ok_button.pack()
+
 
 
     def update_product_labels(self, product):
